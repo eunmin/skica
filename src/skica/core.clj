@@ -1,4 +1,28 @@
-(ns skica.core)
+(ns skica.core
+  (:require [skica.paint :as paint]))
+
+(defn paint [{:keys [anti-alias? dither? filter-quality color mode stroke color4f alphf alpha stroke-width stroke-miter stroke-cap stroke-join shader
+                     color-filter blend-mode path-effect mask-filter image-filter]}]
+  (cond-> (paint/make-paint)
+          anti-alias? (paint/set-anti-alias anti-alias?)
+          dither? (paint/set-dither dither?)
+          filter-quality (paint/set-filter-quality filter-quality)
+          color (paint/set-color color)
+          mode (paint/set-mode mode)
+          stroke (paint/set-stroke stroke)
+          color4f (paint/set-color4f color4f)
+          alphf (paint/set-alphaf alphf)
+          alpha (paint/set-alpha alpha)
+          stroke-width (paint/set-stroke-width stroke-width)
+          stroke-miter (paint/set-stroke-miter stroke-miter)
+          stroke-cap (paint/set-stroke-cap stroke-cap)
+          stroke-join (paint/set-stroke-join stroke-join)
+          shader (paint/set-shader shader)
+          color-filter (paint/set-color-filter color-filter)
+          blend-mode (paint/set-blend-mode blend-mode)
+          path-effect (paint/set-path-effect path-effect)
+          mask-filter (paint/set-mask-filter mask-filter)
+          image-filter (paint/set-image-filter image-filter)))
 
 (def framebuffer-format
   {:gr-gl-stencil-index     0x1901

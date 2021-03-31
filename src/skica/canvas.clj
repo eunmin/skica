@@ -17,7 +17,7 @@
 (defn draw-float-points [^Canvas canvas coords ^Paint paint]
   (.drawPoints canvas (floats coords) paint))
 
-(defn drawLine [^Canvas canvas x0 y0 x1 y1 ^Paint paint]
+(defn draw-line [^Canvas canvas x0 y0 x1 y1 ^Paint paint]
   (.drawLine canvas (float x0) (float y0) (float x1) (float y1) paint))
 
 (defn draw-lines [^Canvas canvas ^"[Lorg.jetbrains.skija.Point;" coords ^Paint paint]
